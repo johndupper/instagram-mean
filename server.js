@@ -8,4 +8,10 @@ var bodyParser = require('body-parser');
 var configs = require('./config/config.js');
 configs.setConfigs();
 
-var port = process.env.PORT || 8080;
+mongoose.connect(process.env.MONGO_CONNECT)
+
+var PORT = process.env.PORT || 8080;
+
+app.listen(PORT, function() {
+    console.log('server running on port: ' + PORT);
+});
